@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <title>Form </title>
+</head>
+<body class="bg-info text-dark">
+<div class="container-lg ">
+        <div class="row justify-content-center m-5 ">
+            <div class="col-lg-4 mt-5">
+                <h2 class="text-center">Form Log In</h2>
+
+    <form id="registrationForm" >
+    <label for="email"> Email :</label>
+    <div class="mb-4 input-group">
+    <span class="input-group-text">
+        <i class="bi bi-envelope-fill"></i>
+    </span>
+    <input type="email" class="form-control" id="email" placeholder="cristina@example.com"  required multiple>
+  </div>
+  
+      <label for="password ">Password :</label>
+      <div class="mb-4 input-group">
+      <span class="input-group-text">
+       <i class="bi bi-eye-slash" ></i>
+      </span>
+      <input type="password" id="password" class="form-control"  placeholder="*******" required>
+    </div>
+    <label for="text">Phone :</label>
+    <div class="mb-4 input-group">
+    <span class="input-group-text">
+    <i class="bi bi-telephone-fill"></i>
+    </span>
+    <input type="text" class="form-control" id="text" placeholder="1234567890" required minlength="11" pattern="\d{11,}">
+  </div>
+   
+    <label for="number">Number :</label>
+    <div class="mb-4 input-group">
+    <span class="input-group-text">
+    <i class="bi bi-arrow-bar-up"></i>
+    </span>
+   
+    <input type="number" id="number" value="1" min="1" class="form-control" required>
+  </div>
+   
+
+   
+
+  <div class="mb-6 text-center">
+    <button type="submit"  class="btn btn-info">Submit</button> </div>
+</form>
+
+</div>
+</div>
+<div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('passwordInput');
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+       
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const text = document.getElementById('text').value;
+        const number = document.getElementById('number').value;
+       
+        console.log('Email :', email);
+        console.log('password :', password);
+        console.log('Phone:', text);
+        console.log('Number :', number);
+        
+
+        document.getElementById('email').disabled = true;
+        document.getElementById('password').disabled = true;
+
+        document.getElementById('text').disabled = true;
+        document.getElementById('number').disabled = true;
+   
+        event.target.querySelector('button[type="submit"]').disabled = true; 
+    });
+
+
+</script>
+
+</body>
+</html>
